@@ -3,7 +3,6 @@ Restaurant Management API
 A production-ready REST API for managing restaurant menu, orders, and table bookings.
 Includes JWT authentication, modular app structure, and Postman collection for testing.
 
-
 1. Project Overview
 
 This API provides backend functionality for a restaurant system:
@@ -14,8 +13,8 @@ Order management (CRUD)
 Booking management (CRUD)
 Clean Django REST Framework architecture
 
-
-2. Authentication (JWT) 
+2. Authentication (JWT)
+   
 🔐Signup :  POST /api/accounts/signup/
 
 Body:
@@ -66,9 +65,8 @@ Update Booking : PUT /api/book/<id>/
 Delete Booking : DELETE /api/book/<id>/
 
 3. Technologies Used
-
 Python 3
-Django
-Django REST Framework
-SimpleJWT
-SQLite 
+Django,
+Django REST Framework,
+SimpleJWT,
+SQLite, 
