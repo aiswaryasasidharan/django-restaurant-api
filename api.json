@@ -1,0 +1,335 @@
+{
+  "info": {
+    "name": "Restaurant API Collection",
+    "description": "Postman collection for Accounts, Menu, Orders, Bookings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  
+
+"item": [
+    {
+      "name": "Signup",
+      "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/api/accounts/signup/",
+      "header": [
+          { "key": "Content-Type", "value": "application/json" }],       
+
+        "body": {
+           "username": "user2",
+           "password": "pass555"
+        },
+        "output":{
+            "id": 2,
+            "username": "user2"
+        }
+    }
+},
+
+    
+
+    {
+      "name": "Login (Get Token)",
+      "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/api/accounts/token/",
+
+        "body": {
+           "username": "user2",
+           "password": "pass555"
+        },
+        "output":{           
+           "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODg5MTE0MiwiaWF0IjoxNzY4ODA0NzQyLCJqdGkiOiIwN2QwZmQ4MmNlZDM0YThlYTQ1MGU5ZWM1MWZhMDhlOSIsInVzZXJfaWQiOjF9.uJxK0aa00x2gc-ol15m-9ftNwlstLUTBAyLwqDSGSpw",
+           "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4ODA1MDQyLCJpYXQiOjE3Njg4MDQ3NDIsImp0aSI6IjFjNDkwMGE2ZDg5NDRkOWVhNzM1ODNkYjQ0ZmVlOWI4IiwidXNlcl9pZCI6MX0.89tPH7p9h1dT16LAGkTleMBZg8v3QQkcqUciLUpz-2M"
+        }
+      }
+},
+
+
+
+     {
+      "name": "Refresh",
+      "request": {
+      "method": "POST",
+      "url":"http://127.0.0.1:8000/api/accounts/token/refresh/",
+
+        "body": {
+           "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODg5NjI0NSwiaWF0IjoxNzY4ODA5ODQ1LCJqdGkiOiI0YmNjY2JmYjJhZWI0NmM3YmEwYzkxY2EzYmU5YWNmMiIsInVzZXJfaWQiOjF9.2qepMHyH5bVdkX7T8cbhyQYPGsuFzGAO4x4iy6RqBG8"
+          },
+        "output":{
+            "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4ODEwMTYyLCJpYXQiOjE3Njg4MDk4NDUsImp0aSI6IjZkYzY5NWFjYjg4MTRlM2M5MzM5NGNhNGI1M2RiMTVkIiwidXNlcl9pZCI6MX0.pIBV8XWtmRsDJmC2rSqLC1z0UH9NAi1owGb2auHHdQM"
+         }
+       }
+     }
+],
+
+
+
+
+"item": [
+    {
+      "name": "Get All Menu Items",
+      "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:8000/api/menu/",
+    
+         "body":[],
+         "output":
+            [
+       {
+        "id": 1,
+        "name": "biriyani",
+        "description": "nice food",
+        "price": "1900.00",
+        "category": "non -veg"
+    },
+    {
+        "id": 3,
+        "name": "sadhya",
+        "description": "tasty food",
+        "price": "80.00",
+        "category": "veg"
+             }
+            ]
+  }  
+}, 
+
+
+
+    {
+      "name": "Create Menu Item",
+      "request": {
+        "method": "POST",
+         "url": "http://127.0.0.1:8000/api/menu/",
+       
+             "body":
+             {
+             "name":"sadhya",
+              "description":"tasty food",
+              "price":80,
+              "category":"veg"
+            },
+
+              "output":
+                {
+               "id": 3,
+               "name":"sadhya",
+              "description":"tasty food",
+              "price":80,
+              "category":"veg"
+             }                   
+      }
+ },
+
+
+    {
+        "name":"Edit Menu Item",
+        "request": {
+        "method": "GET",
+         "url": "http://127.0.0.1:8000/api/menu/id/",
+       
+             "body":
+             {
+            "name":"sadhya",
+              "description":"tasty food",
+              "price":80,
+              "category":"veg"
+            },
+
+              "output":
+                {
+               "id": 3,
+               "name":"sadhya",
+              "description":"tasty food",
+              "price":100,
+              "category":"veg"
+             }                   
+      }
+  },
+
+
+
+  {    
+        "name":"Delete Menu Item",
+        "request": {
+        "method": "DELETE",
+         "url": "http://127.0.0.1:8000/api/menu/id/",
+       
+             "body":{},
+              "output":[]
+    }
+  
+},
+
+
+
+
+    {
+      "name": "Get All Orders",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/orders/",
+  
+            "body":[],
+            "output":[
+    {
+        "id": 2,
+        "total_amount": "1900.00",
+        "status": "Pending",
+        "created": "2026-01-17T16:54:24.172092Z",
+        "user": 1,
+        "items": [
+            1
+        ]
+    },
+    {
+        "id": 3,
+        "total_amount": "1900.00",
+        "status": "Pending",
+        "created": "2026-01-19T06:24:44.843969Z",
+        "user": 1,
+        "items": [
+            1
+        ]
+    },
+    {
+        "id": 4,
+        "total_amount": "2150.00",
+        "status": "Pending",
+        "created": "2026-01-19T06:37:24.475729Z",
+        "user": 1,
+        "items": [
+            1
+        ]
+    }
+]
+ }
+}, 
+
+
+
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/api/orders/",
+        "body": 
+        {
+              "total_amount": 3678,
+               "user": 1,
+                "items": [4]
+               },
+         "output":
+         {
+          "id": 5,
+          "total_amount": "190.00",
+          "status": "Pending",
+           "created": "2026-01-19T09:00:25.980280Z",
+           "user": 1,
+           "items": [4]
+          }      
+      }
+},
+
+
+
+    {
+      "name": "Edit Order",
+      "request": {
+        "method": "PUT",
+        "url": "http://127.0.0.1:8000/api/orders/id/"
+      }
+    },
+
+
+{
+      "name": "Delete Order",
+      "request": {
+        "method": "DELETE",
+        "url": "http://127.0.0.1:8000/api/orders/id/"
+      }
+    },
+
+
+
+
+    {
+      "name": "Get All Bookings",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:8000/api/book/",
+        "body":{
+        "id": 1,
+        "date": "2026-01-16",
+        "time": "18:00:00",
+        "number_of_people": 4,
+        "status": "Booked",
+        "user": 1
+    
+        }
+      }
+    },
+
+
+
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+         "url": "http://127.0.0.1:8000/api/book/",
+        "body": {
+          "user":1,
+    "date": "2020-01-16",
+    "time": "1:00",
+    "number_of_people":5
+        },
+        "output":{
+    "id": 4,
+    "date": "2020-01-16",
+    "time": "01:00:00",
+    "number_of_people": 5,
+    "status": "Booked",
+    "user": 1
+
+        }
+      }
+    },
+
+  
+  
+  
+    {
+      "name": "Edit Booking",
+      "request": {
+        "method": "PUT",
+         "url": "http://127.0.0.1:8000/api/book/id/",
+        "body": {"user":1,
+    "date": "2020-01-16",
+    "time": "2:00",
+    "number_of_people":5
+},
+        "output":{
+       "id": 3,
+       "date": "2020-01-16",
+       "time": "02:00:00",
+        "number_of_people": 5,
+       "status": "Booked",
+       "user": 1
+}
+ }
+},
+
+
+
+    {
+      "name": "Delete Booking",
+      "request": {
+        "method": "DELETE",
+         "url": "http://127.0.0.1:8000/api/book/id/",
+        "body": {},
+        "output":[]
+    }
+}
+]  
+}
+
